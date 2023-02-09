@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CreditRequest;
 use Illuminate\Database\Seeder;
 
 class CreditRequestSeeder extends Seeder
@@ -13,6 +14,6 @@ class CreditRequestSeeder extends Seeder
      */
     public function run()
     {
-        //
+        CreditRequest::factory(50)->create();
     }
 }
