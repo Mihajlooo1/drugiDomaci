@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CreditController;
 use App\Http\Controllers\CreditRequestController;
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+
 Route::get('/clients', [ClientController::class, 'index']);
 Route::get('/credits', [CreditController::class, 'index']);
 Route::get('/credit-requests', [CreditRequestController::class, 'index']);
@@ -26,4 +30,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/credits/{id}', [CreditController::class, 'update']);
     Route::post('/credit-requests', [CreditRequestController::class, 'store']);
     Route::delete('/credit-requests/{id}', [CreditRequestController::class, 'destroy']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
